@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{url_for('static',filename='fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <style>
+
+input[type=text], select, textarea {
+  font-family:Serif;
+  font-size:18px;
+  width: 95%; /* Full width */
+  padding: 10px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 10px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom:9px; /* Bottom margin */
+  resize: vertical ;
+  color:#000000;
+  background-color:#C0C0C0;
+  /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color:#000080;
+  color:White;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color:#800000
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #485563;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  padding-top: 10px;
+  font-size: 8pt;
+}
+.photo{
+    width: 900px;
+    height: 650px;
+    overflow: hidden;
+    margin: 0 55px;
+    margin-top: 45px;
+}
+.ot{
+    font-size: 14pt;
+}
+</style>
+</head>
+<body>
+    <h2 class="form-title" align="center" style="color:red" >MushRoom Classification</h2>
+        <div class="container">
+            <div class="signup-content">
+                    <div class="signup-form">
+                    <form action="/classify" method="post" enctype="multipart/form-data">
+                            <h1 align="left" style="color:#f5efef">Cap Surface</h1>
+                            <select id="capsurface" name="capsurface">
+                            <option value="3">Smooth</option>
+                            <option value="0">Fibrous</option>
+                            <option value="2">Scaly</option>
+                            <option value="1">Grooves</option>
+                            </select>
+
+                            <h1 align="left" style="color:#f5efef">Gill Size</h1>
+                            <select id="gillsize" name="gillsize">
+                            <option value="1">Narrow</option>
+                            <option value="0">Broad</option>
+                            </select>
+
+
+                            <h1 align="left" style="color:#f5efef">Veil Color</h1>
+                            <select id="veilcolor" name="veilcolor">
+                            <option value="2">White</option>
+                            <option value="3">Yellow</option>
+                            <option value="1">Orange</option>
+                            <option value="0">Brown</option>
+                            </select>
+
+                            <h1 align="left" style="color:#f5efef">Ring No</h1>
+                            <select id="ringnum" name="ringnum">
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="0">None</option>
+                            </select>
+
+                             <h1 align="left" style="color:#f5efef">Ring Type</h1>
+                            <select id="ringtype" name="ringtype">
+                            <option value="4">Pendant</option>
+                            <option value="0">Evanescent</option>
+                            <option value="2">Large</option>
+                            <option value="1">Flaring</option>
+                            </select>
+
+
+                             <h1 align="left" style="color:#f5efef">Stalk Type</h1>
+                            <select id="stalktype" name="stalktype">
+                            <option value="1">Tapering</option>
+                            <option value="0">Enlargin</option>
+                            </select>
+
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Classify"/>
+                            </div>
+                            <h1 style="color:yellow" class="ot"> A mushroom type is {{output}} </h1>
+                            </form>
+                    </div>
+                     <img src="{{url_for('static',filename='images/mushroom.jpg')}}" class="photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+     <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+    <script src="{{url_for('static',filename='js/option.js')}}"></script>
+</body>
+</html>
